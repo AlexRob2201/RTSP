@@ -1,13 +1,11 @@
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
-import multiprocessing
 import sys
+import logging
 import os
 import cv2
-import threading
-import time
 from queue import Queue
-from datetime import datetime as dt, timedelta
+from datetime import datetime as dt 
 from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget, QLabel,
     QLineEdit, QPushButton, QTableWidget, QTableWidgetItem, QFileDialog,
@@ -27,8 +25,8 @@ class Device(Base):
     save_path = Column(String(200), nullable=False)
     interval = Column(Integer, nullable=False, default=60)
     active = Column(Boolean, nullable=False, default=False)
-    last_capture_time = Column(DateTime)
 
+    
 
 class RTSPMonitor(QMainWindow):
     def __init__(self):
@@ -42,14 +40,18 @@ class RTSPMonitor(QMainWindow):
         self.current_device = None
         self.streaming_thread = None
         self.device_streams = {}
+        self.device_threads = {}
         
-        self.thread_pool = ThreadPoolExecutor(max_workers=3)  # Максимальна кількість одночасних потоків
+        self.thread_pool = ThreadPoolExecutor(max_workers=5)  # Максимальна кількість одночасних потоків
         self.frame_queues = {} # Черга для передачі кадрів між потоками
         self.frame_queue_locks = {}
+        self.start_times = {}  # Словник для збереження початкового часу моніторингу
 
         self.init_ui()
         self.load_devices()
         self.refresh_device_list()
+        
+        logging.basicConfig(filename='RTSPMonitor.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
     def init_ui(self):
         self.setWindowTitle("RTSP Monitor")
@@ -185,7 +187,7 @@ class RTSPMonitor(QMainWindow):
             new_save_path = self.save_path_input.text()
             new_interval = int(self.interval_input.text()) if self.interval_input.text().isdigit() else 60
 
-        # Перевірка на дублікати
+            # Перевірка на дублікати
             if self.is_duplicate_device(new_rtsp_url, new_name, exclude_id=self.current_device.id):
                 QMessageBox.warning(self, "Error", "A device with the same RTSP URL or name already exists.")
                 return
@@ -207,29 +209,40 @@ class RTSPMonitor(QMainWindow):
             self.session.commit()
 
             self.frame_queues[self.current_device.id] = Queue()  # Створити чергу для поточного пристрою
+            self.start_times[self.current_device.id] = dt.now()  # Збереження початкового часу
             self.thread_pool.submit(self.run_async_task, self.current_device)
+            logging.info(f"Monitoring started for device {self.current_device.name}")
+
 
         self.refresh_device_list()
 
     def run_async_task(self, device):
         asyncio.run(self.start_streaming(device))
 
+
     async def start_streaming(self, device):
+        logging.info(f"Starting streaming for device {device.name}")
         try:
             cap = cv2.VideoCapture(device.rtsp_url, cv2.CAP_FFMPEG)
             while cap.isOpened() and device.active:
                 ret, frame = cap.read()
                 if ret:
-                    self.frame_queues[device.id].put(frame)  # Покласти кадр у чергу потоку
-                    await self.save_frames(device.id, device)
+                    if self.frame_queues[device.id].qsize() >= 2:
+                        self.frame_queues[device.id].get()  # Видалити найстаріший кадр з черги
+                    current_time = dt.now()
+                    start_time = self.start_times.get(device.id)
+                    if start_time and (current_time - start_time).seconds >= device.interval:
+                        self.start_times[device.id] = current_time  # Оновити час старту для порівняння
+                        self.frame_queues[device.id].put(frame)  # Покласти новий кадр у чергу потоку
+                        await self.save_frames(device)
                 else:
-                    print(f"Failed to capture frame from {device.rtsp_url}")
-                    break
+                    logging.error(f"Failed to capture frame from - {device.name}, {device.rtsp_url}")
+                    self.stop_monitoring
             cap.release()
         except Exception as e:
-            print(f"Error while reading RTSP stream: {e}")
+            logging.error(f"Error while reading RTSP stream for device {device.name}: {e}")
             cap.release()
- 
+    
     def stop_monitoring(self):
         if self.current_device:
             self.current_device.active = False
@@ -238,28 +251,31 @@ class RTSPMonitor(QMainWindow):
             device_id = self.current_device.id
             if device_id in self.device_streams:
                 self.device_streams[device_id].join()  # Зупинити потік для цього пристрою
-
-        self.refresh_device_list()
-
-    async def save_frames(self, device_id,device):
-        if self.frame_queues[device_id].qsize() > 0:
-            frame = self.frame_queues[device_id].get()
-            try:
-                await self.async_save_frame(frame, device.name, device.save_path, device)
+                logging.info(f"Monitoring stoped for device {self.current_device.name}")
                 
-            except Exception as e:
-                print(f"Error while saving frame: {e}")
+        self.refresh_device_list()
+   
+    async def save_frames(self, device):
+        try:
+            frame_queue = self.frame_queues[device.id]
+            if frame_queue.qsize() > 0:
+                frame = frame_queue.queue[-1]
+                await self.async_save_frame(frame, device.name, device.save_path)
+                frame_queue.queue.clear() # Очистити чергу після збереження
+            else:
+                logging.error(f"No frames in queue for {device.name}")
+        except Exception as e:
+            logging.error(f"Error while saving frame for device {device.name}: {e}")
 
-    async def async_save_frame(self, frame, device_name, save_path,device):
+    async def async_save_frame(self, frame, device_name, save_path):
         try:
             
             current_time = dt.now().strftime("%Y-%m-%d_%H-%M-%S")
             image_path = os.path.join(save_path, f"{device_name}_{current_time}.jpg")
             cv2.imwrite(image_path, frame)
-            print(f'Save picture from device {device_name} to path - {image_path}')
-            await asyncio.sleep(device.interval)
+            logging.info(f'Save picture from device {device_name} to path - {image_path}')
         except Exception as e:
-            print(f"Error in save_frame: {e}")
+            logging.error(f"Error in save_frame for device {device_name}: {e}")
     
     def select_device(self, row, col):
         self.current_device = self.devices[row]
@@ -286,8 +302,6 @@ class RTSPMonitor(QMainWindow):
             status_item = QTableWidgetItem("Active" if device.active else "Inactive")
             status_item.setBackground(QColor(0, 255, 0) if device.active else QColor(255, 255, 255))
             self.device_list.setItem(row, 3, status_item)
-
-
 
     def tray_icon_clicked(self, reason):
         if reason == QSystemTrayIcon.DoubleClick:
