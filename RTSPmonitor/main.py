@@ -15,7 +15,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtGui import QIcon, QColor
 from sqlalchemy import create_engine, Column, String, Integer, Boolean, DateTime
 from sqlalchemy.orm import declarative_base, sessionmaker
-from main import FTPConfigWindow
+from ftp_config import FTPConfigWindow
 
 
 Base = declarative_base()
@@ -318,13 +318,11 @@ class RTSPMonitor(QMainWindow):
             if save_path:
                 cv2.imwrite(image_path, frame)
                 logging.info(f'Save picture from device {device_name} to path - {image_path}')
-            else:
-                logging.error(f"Error in save_frame for device {device_name}: {e}")      
-            try:
                 if self.ftp_config_window:
-                    self.ftp_config_window.send_photo(self.ftp, device) # Виклик методу send_photo з FTPConfigWindow
-            except Exception as e:
-                logging.error(f"Error with FTP connection: {e}")
+                    self.ftp_config_window.send_photo_from_path(self.ftp, device) # Виклик методу send_photo з FTPConfigWindow
+            else:
+                if self.ftp_config_window:
+                    self.ftp_config_window.send_photo_from_buffer(self.ftp, frame, image_name) # Виклик методу send_photo з FTPConfigWindow
         except Exception as e:
             logging.error(f"Error in device {device_name}: {e}")
 
