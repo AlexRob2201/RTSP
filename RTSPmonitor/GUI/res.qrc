@@ -1,0 +1,16 @@
+<RCC>
+  <qresource>
+    <file>img/back-button.png</file>
+    <file>img/add-list.png</file>
+    <file>img/alter.png</file>
+    <file>img/cursor.png</file>
+    <file>img/ftp.png</file>
+    <file>img/list.png</file>
+    <file>img/main_icon.png</file>
+    <file>img/menu.png</file>
+    <file>img/save.png</file>
+    <file>img/schedule.png</file>
+    <file>img/search.png</file>
+    <file>img/trash.png</file>
+  </qresource>
+</RCC>
