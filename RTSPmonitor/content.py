@@ -2,7 +2,7 @@ import json
 from PyQt6.QtCore import Qt
 from GUI.ui_main_sidebar import Ui_MainWindow
 from PyQt6.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QHeaderView, QTableWidgetItem, QAbstractItemView, QDialog
-from data.requests import DataBase
+from data.json_data import DataBase
 
 
 class MySideBar(QMainWindow, Ui_MainWindow):
@@ -14,6 +14,8 @@ class MySideBar(QMainWindow, Ui_MainWindow):
         self.bson = DataBase('devices.json')
         
         self.load_devices_to_table()
+        
+        self.current_device_name = None
         
         self.icon_name_widget.setHidden(True)
         
@@ -39,6 +41,7 @@ class MySideBar(QMainWindow, Ui_MainWindow):
         self.select_folder_2.clicked.connect(self.select_folder_path)
         
         self.change_device_1.clicked.connect(self.open_edit_device)
+        self.save_changed_device_2.clicked.connect(self.edit_device)
         
         ### BUTTONS ###
         
@@ -120,10 +123,11 @@ class MySideBar(QMainWindow, Ui_MainWindow):
             QMessageBox.warning(self, "Warning", "No device selected")
             return
         
+        
         device_name = selected_items[0].text()
         device_rtsp = selected_items[1].text()
         device_folder = selected_items[2].text()
-
+        self.current_device_name = device_name
         self.device_name_text_2.setText(device_name)
         self.rtsp_string_text_2.setText(device_rtsp)
         self.folder_path_text_2.setText(device_folder)
@@ -131,16 +135,18 @@ class MySideBar(QMainWindow, Ui_MainWindow):
         # Перемкніться на екран редагування
         self.stackedWidget.setCurrentIndex(2)
         
-        self.current_editing_device = device_name
-    
-
-
+    def edit_device(self):
         
-        # if self.bson.save(device_name):
-        #     self.populate_table()
-        #     QMessageBox.information(self, "Info", f"Device '{device_name}' has been removed.")
-        # else:
-        #     QMessageBox.warning(self, "Error", f"Device '{device_name}' can't be removed.")
+        device_name_text = self.device_name_text_2.text()
+        rtsp_string_text = self.rtsp_string_text_2.text()
+        folder_path_text = self.folder_path_text_2.text()
+        if self.bson.edit_device(self.current_device_name, device_name_text, rtsp_string_text, folder_path_text):
+            self.populate_table()
+            QMessageBox.information(self, "Success", "Device succesfuly edited")
+        else:
+            QMessageBox.warning(self, "Warning", "Some data is wrong, please check")
+        self.current_device_name = None
+        self.stackedWidget.setCurrentIndex(0)
         
     def select_folder_path(self):
         folder_path = QFileDialog.getExistingDirectory(self.new_window, "Select Folder")

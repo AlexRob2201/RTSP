@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file '.\GUI\ui_main_work_no_page.ui'
+# Form implementation generated from reading ui file '.\GUI\ui_main_sidebar.ui'
 #
 # Created by: PyQt6 UI code generator 6.7.0
 #
@@ -8,7 +8,6 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 import GUI.res_rc
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -657,15 +656,15 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setObjectName("horizontalLayout_8")
         spacerItem12 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.horizontalLayout_8.addItem(spacerItem12)
-        self.add_new_device_button_2 = QtWidgets.QPushButton(parent=self.change_device_page)
-        self.add_new_device_button_2.setMinimumSize(QtCore.QSize(200, 60))
-        self.add_new_device_button_2.setMaximumSize(QtCore.QSize(200, 60))
+        self.save_changed_device_2 = QtWidgets.QPushButton(parent=self.change_device_page)
+        self.save_changed_device_2.setMinimumSize(QtCore.QSize(200, 60))
+        self.save_changed_device_2.setMaximumSize(QtCore.QSize(200, 60))
         font = QtGui.QFont()
         font.setPointSize(10)
-        self.add_new_device_button_2.setFont(font)
-        self.add_new_device_button_2.setIcon(icon10)
-        self.add_new_device_button_2.setObjectName("add_new_device_button_2")
-        self.horizontalLayout_8.addWidget(self.add_new_device_button_2)
+        self.save_changed_device_2.setFont(font)
+        self.save_changed_device_2.setIcon(icon10)
+        self.save_changed_device_2.setObjectName("save_changed_device_2")
+        self.horizontalLayout_8.addWidget(self.save_changed_device_2)
         spacerItem13 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.horizontalLayout_8.addItem(spacerItem13)
         self.verticalLayout_4.addLayout(self.horizontalLayout_8)
@@ -790,7 +789,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
         self.switch_menu_button.toggled['bool'].connect(self.icon_widget.setHidden) # type: ignore
         self.switch_menu_button.toggled['bool'].connect(self.icon_name_widget.setVisible) # type: ignore
         self.dashboard_button.toggled['bool'].connect(self.dashboard_button_1.setChecked) # type: ignore
@@ -822,7 +821,7 @@ class Ui_MainWindow(object):
         self.device_name_text_2.setPlaceholderText(_translate("MainWindow", "Name"))
         self.rtsp_string_text_2.setPlaceholderText(_translate("MainWindow", "RTSP string"))
         self.folder_path_text_2.setPlaceholderText(_translate("MainWindow", "Path to folder"))
-        self.add_new_device_button_2.setText(_translate("MainWindow", "Save"))
+        self.save_changed_device_2.setText(_translate("MainWindow", "Save"))
         self.label_5.setText(_translate("MainWindow", "SOON"))
 
 

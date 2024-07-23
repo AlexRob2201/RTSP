@@ -1,20 +1,26 @@
 [
     {
-        "name": "test",
+        "name": "test rtsp 213",
         "rtsp_url": "rtsp://login.partizancloud.com/rest/CloudLink/player/132314/2a7bdc98d2a858649def8e6597cc886fcdad0057d54c738d88cd7f96c0d3b1b8?stream=main",
-        "save_path": "D:/var/rtsp/RTSP/RTSPmonitor/tests",
+        "save_path": "D:/var/rtsp/RTSP/RTSPmonitor/style",
         "active": false
     },
     {
-        "name": "test1",
+        "name": "newtest456",
         "rtsp_url": "rtsp://login.partizancloud.com/rest/CloudLink/player/132314/2a7bdc98d2a858649def8e6597cc886fcdad0057d54c738d88cd7f96c0d3b1b8?stream=main",
-        "save_path": "D:/var/rtsp/RTSP/RTSPmonitor/tests",
+        "save_path": "D:/var/rtsp/RTSP/RTSPmonitor",
         "active": false
     },
     {
-        "name": "test12",
+        "name": "test rtsp 256",
         "rtsp_url": "rtsp://login.partizancloud.com/rest/CloudLink/player/132314/2a7bdc98d2a858649def8e6597cc886fcdad0057d54c738d88cd7f96c0d3b1b8?stream=main",
-        "save_path": "D:/var/rtsp/RTSP/RTSPmonitor/data",
+        "save_path": "D:/var/rtsp/RTSP/RTSPmonitor/style",
+        "active": false
+    },
+    {
+        "name": "test rtsp 4156",
+        "rtsp_url": "rtsp://login.partizancloud.com/rest/CloudLink/player/132314/2a7bdc98d2a858649def8e6597cc886fcdad0057d54c738d88cd7f96c0d3b1b8?stream=main",
+        "save_path": "D:/var/rtsp/RTSP/RTSPmonitor/style",
         "active": false
     }
 ]
