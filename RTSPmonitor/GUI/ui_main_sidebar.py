@@ -9,11 +9,12 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 import GUI.res_rc
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setWindowModality(QtCore.Qt.WindowModality.WindowModal)
-        MainWindow.resize(1490, 720)
+        MainWindow.resize(1319, 731)
         MainWindow.setMinimumSize(QtCore.QSize(1280, 720))
         MainWindow.setStyleSheet("#title_bar {\n"
 "    background-color: #2C3F44;\n"
@@ -54,137 +55,6 @@ class Ui_MainWindow(object):
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName("gridLayout")
-        self.icon_name_widget = QtWidgets.QWidget(parent=self.centralwidget)
-        self.icon_name_widget.setMinimumSize(QtCore.QSize(0, 720))
-        self.icon_name_widget.setStyleSheet("QWidget {\n"
-"paddind: 5px;\n"
-"\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton{\n"
-"    color: rgb(255, 255, 255);\n"
-"     background-color:rgba(255,255,255,30);\n"
-"     border: 1px solid rgba(255,255,255,40);\n"
-"     border-radius:7px;\n"
-"     text-align:left;\n"
-"     padding-left: 15%;\n"
-"width: 230;\n"
-"height: 50;\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color:rgba(255,255,255,30);\n"
-"}\n"
-"QPushButton:pressed{\n"
-"background-color:rgba(255,255,255,70);\n"
-"}\n"
-"QPushButton:checked{\n"
-"    background-color: #2C3F44;\n"
-"    font-weight:bold;\n"
-"}")
-        self.icon_name_widget.setObjectName("icon_name_widget")
-        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.icon_name_widget)
-        self.verticalLayout_7.setObjectName("verticalLayout_7")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_2.setSpacing(14)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.horizontalLayout = QtWidgets.QHBoxLayout()
-        self.horizontalLayout.setContentsMargins(-1, 7, -1, -1)
-        self.horizontalLayout.setSpacing(10)
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.label_2 = QtWidgets.QLabel(parent=self.icon_name_widget)
-        self.label_2.setMinimumSize(QtCore.QSize(60, 60))
-        self.label_2.setMaximumSize(QtCore.QSize(60, 60))
-        self.label_2.setStyleSheet("QLabel {\n"
-"    border-radius: 7px;       /* Закруглення країв для створення круглої форми */\n"
-"    border: 2px solid #000;   /* Додавання рамки */\n"
-"    background-color: none;   /* Відсутність фону */\n"
-"    padding: 1px;\n"
-"}\n"
-"\n"
-"QLabel::SetPixmap {\n"
-"    border-radius: 7px;       /* Закруглення країв зображення */\n"
-"}\n"
-"")
-        self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap(":/img/main_icon.png"))
-        self.label_2.setScaledContents(True)
-        self.label_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
-        self.label_2.setWordWrap(False)
-        self.label_2.setTextInteractionFlags(QtCore.Qt.TextInteractionFlag.NoTextInteraction)
-        self.label_2.setObjectName("label_2")
-        self.horizontalLayout.addWidget(self.label_2)
-        self.label_3 = QtWidgets.QLabel(parent=self.icon_name_widget)
-        self.label_3.setMaximumSize(QtCore.QSize(120, 60))
-        font = QtGui.QFont()
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
-        font.setStrikeOut(False)
-        self.label_3.setFont(font)
-        self.label_3.setMouseTracking(False)
-        self.label_3.setStyleSheet("QLabel {\n"
-"    color: rgb(255, 255, 255);\n"
-"\n"
-"width: 230;\n"
-"height: 50;\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color:rgba(255,255,255,30);\n"
-"}\n"
-"QPushButton:pressed{\n"
-"background-color:rgba(255,255,255,70);\n"
-"}")
-        self.label_3.setObjectName("label_3")
-        self.horizontalLayout.addWidget(self.label_3)
-        self.verticalLayout_2.addLayout(self.horizontalLayout)
-        self.dashboard_button_1 = QtWidgets.QPushButton(parent=self.icon_name_widget)
-        self.dashboard_button_1.setMaximumSize(QtCore.QSize(200, 60))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.dashboard_button_1.setFont(font)
-        self.dashboard_button_1.setStyleSheet("")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/img/list.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.dashboard_button_1.setIcon(icon)
-        self.dashboard_button_1.setIconSize(QtCore.QSize(30, 30))
-        self.dashboard_button_1.setCheckable(True)
-        self.dashboard_button_1.setAutoExclusive(True)
-        self.dashboard_button_1.setObjectName("dashboard_button_1")
-        self.verticalLayout_2.addWidget(self.dashboard_button_1)
-        self.connect_ftp_button_1 = QtWidgets.QPushButton(parent=self.icon_name_widget)
-        self.connect_ftp_button_1.setMaximumSize(QtCore.QSize(200, 60))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.connect_ftp_button_1.setFont(font)
-        self.connect_ftp_button_1.setStyleSheet("")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/img/ftp.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.connect_ftp_button_1.setIcon(icon1)
-        self.connect_ftp_button_1.setIconSize(QtCore.QSize(30, 30))
-        self.connect_ftp_button_1.setCheckable(True)
-        self.connect_ftp_button_1.setAutoExclusive(True)
-        self.connect_ftp_button_1.setAutoDefault(False)
-        self.connect_ftp_button_1.setObjectName("connect_ftp_button_1")
-        self.verticalLayout_2.addWidget(self.connect_ftp_button_1)
-        self.addScheduleButton_1 = QtWidgets.QPushButton(parent=self.icon_name_widget)
-        self.addScheduleButton_1.setMaximumSize(QtCore.QSize(200, 60))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.addScheduleButton_1.setFont(font)
-        self.addScheduleButton_1.setStyleSheet("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(":/img/schedule.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.addScheduleButton_1.setIcon(icon2)
-        self.addScheduleButton_1.setIconSize(QtCore.QSize(30, 30))
-        self.addScheduleButton_1.setCheckable(True)
-        self.addScheduleButton_1.setAutoExclusive(True)
-        self.addScheduleButton_1.setObjectName("addScheduleButton_1")
-        self.verticalLayout_2.addWidget(self.addScheduleButton_1)
-        spacerItem = QtWidgets.QSpacerItem(20, 235, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.verticalLayout_2.addItem(spacerItem)
-        self.verticalLayout_7.addLayout(self.verticalLayout_2)
-        self.gridLayout.addWidget(self.icon_name_widget, 0, 1, 1, 1)
         self.content_widget = QtWidgets.QWidget(parent=self.centralwidget)
         self.content_widget.setMinimumSize(QtCore.QSize(0, 700))
         self.content_widget.setStyleSheet("QWidget {\n"
@@ -223,15 +93,15 @@ class Ui_MainWindow(object):
         self.switch_menu_button.setMinimumSize(QtCore.QSize(30, 30))
         self.switch_menu_button.setMaximumSize(QtCore.QSize(30, 30))
         self.switch_menu_button.setText("")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(":/img/menu.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.switch_menu_button.setIcon(icon3)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/img/menu.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.switch_menu_button.setIcon(icon)
         self.switch_menu_button.setIconSize(QtCore.QSize(22, 22))
         self.switch_menu_button.setCheckable(True)
         self.switch_menu_button.setObjectName("switch_menu_button")
         self.horizontalLayout_3.addWidget(self.switch_menu_button)
-        spacerItem1 = QtWidgets.QSpacerItem(468, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_3.addItem(spacerItem1)
+        spacerItem = QtWidgets.QSpacerItem(468, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.search = QtWidgets.QLineEdit(parent=self.widget_4)
@@ -246,16 +116,17 @@ class Ui_MainWindow(object):
 "background-color: rgba(42, 62, 73, 1);\n"
 "}")
         self.search_button.setText("")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(":/img/search.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.search_button.setIcon(icon4)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(":/img/search.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.search_button.setIcon(icon1)
         self.search_button.setIconSize(QtCore.QSize(22, 22))
         self.search_button.setObjectName("search_button")
         self.horizontalLayout_2.addWidget(self.search_button)
         self.horizontalLayout_3.addLayout(self.horizontalLayout_2)
         self.verticalLayout_5.addWidget(self.widget_4)
         self.stackedWidget = QtWidgets.QStackedWidget(parent=self.content_widget)
-        self.stackedWidget.setStyleSheet("QLineEdit, QComboBox {\n"
+        self.stackedWidget.setMinimumSize(QtCore.QSize(200, 60))
+        self.stackedWidget.setStyleSheet("QLineEdit, QComboBox, QTimeEdit {\n"
 "     background-color:rgba(255,255,255,30);\n"
 "     border: 1px solid rgba(255,255,255,40);\n"
 "     border-radius:7px;\n"
@@ -356,17 +227,17 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_6.setContentsMargins(-1, -1, -1, 7)
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
-        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_6.addItem(spacerItem2)
+        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_6.addItem(spacerItem1)
         self.add_device_1 = QtWidgets.QPushButton(parent=self.dashboard_page)
         self.add_device_1.setMaximumSize(QtCore.QSize(160, 60))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.add_device_1.setFont(font)
         self.add_device_1.setStyleSheet("")
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap(":/img/add-list.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.add_device_1.setIcon(icon5)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(":/img/add-list.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.add_device_1.setIcon(icon2)
         self.add_device_1.setIconSize(QtCore.QSize(30, 30))
         self.add_device_1.setCheckable(False)
         self.add_device_1.setAutoExclusive(False)
@@ -378,9 +249,9 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         self.change_device_1.setFont(font)
         self.change_device_1.setStyleSheet("")
-        icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap(":/img/alter.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.change_device_1.setIcon(icon6)
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(":/img/alter.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.change_device_1.setIcon(icon3)
         self.change_device_1.setIconSize(QtCore.QSize(30, 30))
         self.change_device_1.setCheckable(False)
         self.change_device_1.setAutoExclusive(False)
@@ -392,34 +263,34 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         self.delete_device_1.setFont(font)
         self.delete_device_1.setStyleSheet("")
-        icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap(":/img/trash.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.delete_device_1.setIcon(icon7)
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(":/img/trash.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.delete_device_1.setIcon(icon4)
         self.delete_device_1.setIconSize(QtCore.QSize(30, 30))
         self.delete_device_1.setCheckable(False)
         self.delete_device_1.setAutoExclusive(False)
         self.delete_device_1.setObjectName("delete_device_1")
         self.horizontalLayout_6.addWidget(self.delete_device_1)
+        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_6.addItem(spacerItem2)
+        self.stop_button = QtWidgets.QPushButton(parent=self.dashboard_page)
+        self.stop_button.setMinimumSize(QtCore.QSize(160, 60))
+        self.stop_button.setMaximumSize(QtCore.QSize(160, 60))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.stop_button.setFont(font)
+        self.stop_button.setObjectName("stop_button")
+        self.horizontalLayout_6.addWidget(self.stop_button)
+        self.start_button = QtWidgets.QPushButton(parent=self.dashboard_page)
+        self.start_button.setMinimumSize(QtCore.QSize(160, 60))
+        self.start_button.setMaximumSize(QtCore.QSize(160, 60))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.start_button.setFont(font)
+        self.start_button.setObjectName("start_button")
+        self.horizontalLayout_6.addWidget(self.start_button)
         spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.horizontalLayout_6.addItem(spacerItem3)
-        self.pushButton_3 = QtWidgets.QPushButton(parent=self.dashboard_page)
-        self.pushButton_3.setMinimumSize(QtCore.QSize(160, 60))
-        self.pushButton_3.setMaximumSize(QtCore.QSize(160, 60))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.pushButton_3.setFont(font)
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.horizontalLayout_6.addWidget(self.pushButton_3)
-        self.pushButton_4 = QtWidgets.QPushButton(parent=self.dashboard_page)
-        self.pushButton_4.setMinimumSize(QtCore.QSize(160, 60))
-        self.pushButton_4.setMaximumSize(QtCore.QSize(160, 60))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.pushButton_4.setFont(font)
-        self.pushButton_4.setObjectName("pushButton_4")
-        self.horizontalLayout_6.addWidget(self.pushButton_4)
-        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_6.addItem(spacerItem4)
         self.verticalLayout_6.addLayout(self.horizontalLayout_6)
         self.stackedWidget.addWidget(self.dashboard_page)
         self.add_device_page = QtWidgets.QWidget()
@@ -463,17 +334,17 @@ class Ui_MainWindow(object):
         self.back_dashdoard_button.setStyleSheet("background: none;\n"
 "border: none;")
         self.back_dashdoard_button.setText("")
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap(":/img/back-button.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.back_dashdoard_button.setIcon(icon8)
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap(":/img/back-button.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.back_dashdoard_button.setIcon(icon5)
         self.back_dashdoard_button.setIconSize(QtCore.QSize(60, 60))
         self.back_dashdoard_button.setCheckable(False)
         self.back_dashdoard_button.setAutoExclusive(False)
         self.back_dashdoard_button.setObjectName("back_dashdoard_button")
         self.horizontalLayout_7.addWidget(self.back_dashdoard_button)
         self.verticalLayout_3.addLayout(self.horizontalLayout_7)
-        spacerItem5 = QtWidgets.QSpacerItem(947, 57, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.verticalLayout_3.addItem(spacerItem5)
+        spacerItem4 = QtWidgets.QSpacerItem(947, 57, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.verticalLayout_3.addItem(spacerItem4)
         self.device_name_text = QtWidgets.QLineEdit(parent=self.add_device_page)
         self.device_name_text.setMinimumSize(QtCore.QSize(0, 60))
         self.device_name_text.setMaximumSize(QtCore.QSize(16777215, 60))
@@ -517,38 +388,40 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         self.select_folder.setFont(font)
         self.select_folder.setText("")
-        icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap(":/img/cursor.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.select_folder.setIcon(icon9)
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap(":/img/cursor.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.select_folder.setIcon(icon6)
         self.select_folder.setIconSize(QtCore.QSize(30, 30))
         self.select_folder.setObjectName("select_folder")
         self.horizontalLayout_4.addWidget(self.select_folder)
         self.verticalLayout_3.addLayout(self.horizontalLayout_4)
-        self.comboBox = QtWidgets.QComboBox(parent=self.add_device_page)
-        self.comboBox.setObjectName("comboBox")
-        self.verticalLayout_3.addWidget(self.comboBox)
-        spacerItem6 = QtWidgets.QSpacerItem(20, 108, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.verticalLayout_3.addItem(spacerItem6)
+        self.schedule_comboBox = QtWidgets.QComboBox(parent=self.add_device_page)
+        self.schedule_comboBox.setEditable(False)
+        self.schedule_comboBox.setInsertPolicy(QtWidgets.QComboBox.InsertPolicy.InsertAtBottom)
+        self.schedule_comboBox.setObjectName("schedule_comboBox")
+        self.verticalLayout_3.addWidget(self.schedule_comboBox)
+        spacerItem5 = QtWidgets.QSpacerItem(20, 108, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.verticalLayout_3.addItem(spacerItem5)
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
-        spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_5.addItem(spacerItem7)
+        spacerItem6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_5.addItem(spacerItem6)
         self.add_new_device_button = QtWidgets.QPushButton(parent=self.add_device_page)
         self.add_new_device_button.setMinimumSize(QtCore.QSize(200, 60))
         self.add_new_device_button.setMaximumSize(QtCore.QSize(200, 60))
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setPointSize(12)
         self.add_new_device_button.setFont(font)
-        icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap(":/img/save.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.add_new_device_button.setIcon(icon10)
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap(":/img/save.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.add_new_device_button.setIcon(icon7)
         self.add_new_device_button.setObjectName("add_new_device_button")
         self.horizontalLayout_5.addWidget(self.add_new_device_button)
-        spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_5.addItem(spacerItem8)
+        spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_5.addItem(spacerItem7)
         self.verticalLayout_3.addLayout(self.horizontalLayout_5)
-        spacerItem9 = QtWidgets.QSpacerItem(947, 57, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.verticalLayout_3.addItem(spacerItem9)
+        spacerItem8 = QtWidgets.QSpacerItem(947, 57, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.verticalLayout_3.addItem(spacerItem8)
         self.stackedWidget.addWidget(self.add_device_page)
         self.change_device_page = QtWidgets.QWidget()
         self.change_device_page.setObjectName("change_device_page")
@@ -590,15 +463,15 @@ class Ui_MainWindow(object):
         self.back_dashdoard_button_2.setStyleSheet("background: none;\n"
 "border: none;")
         self.back_dashdoard_button_2.setText("")
-        self.back_dashdoard_button_2.setIcon(icon8)
+        self.back_dashdoard_button_2.setIcon(icon5)
         self.back_dashdoard_button_2.setIconSize(QtCore.QSize(60, 60))
         self.back_dashdoard_button_2.setCheckable(False)
         self.back_dashdoard_button_2.setAutoExclusive(False)
         self.back_dashdoard_button_2.setObjectName("back_dashdoard_button_2")
         self.horizontalLayout_10.addWidget(self.back_dashdoard_button_2)
         self.verticalLayout_4.addLayout(self.horizontalLayout_10)
-        spacerItem10 = QtWidgets.QSpacerItem(947, 74, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.verticalLayout_4.addItem(spacerItem10)
+        spacerItem9 = QtWidgets.QSpacerItem(947, 74, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.verticalLayout_4.addItem(spacerItem9)
         self.device_name_text_2 = QtWidgets.QLineEdit(parent=self.change_device_page)
         self.device_name_text_2.setMinimumSize(QtCore.QSize(0, 60))
         self.device_name_text_2.setMaximumSize(QtCore.QSize(16777215, 60))
@@ -642,34 +515,34 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         self.select_folder_2.setFont(font)
         self.select_folder_2.setText("")
-        self.select_folder_2.setIcon(icon9)
+        self.select_folder_2.setIcon(icon6)
         self.select_folder_2.setIconSize(QtCore.QSize(30, 30))
         self.select_folder_2.setObjectName("select_folder_2")
         self.horizontalLayout_9.addWidget(self.select_folder_2)
         self.verticalLayout_4.addLayout(self.horizontalLayout_9)
-        self.comboBox_2 = QtWidgets.QComboBox(parent=self.change_device_page)
-        self.comboBox_2.setObjectName("comboBox_2")
-        self.verticalLayout_4.addWidget(self.comboBox_2)
-        spacerItem11 = QtWidgets.QSpacerItem(1048, 74, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.verticalLayout_4.addItem(spacerItem11)
+        self.schedule_comboBox_1 = QtWidgets.QComboBox(parent=self.change_device_page)
+        self.schedule_comboBox_1.setObjectName("schedule_comboBox_1")
+        self.verticalLayout_4.addWidget(self.schedule_comboBox_1)
+        spacerItem10 = QtWidgets.QSpacerItem(1048, 74, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.verticalLayout_4.addItem(spacerItem10)
         self.horizontalLayout_8 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_8.setObjectName("horizontalLayout_8")
-        spacerItem12 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_8.addItem(spacerItem12)
+        spacerItem11 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_8.addItem(spacerItem11)
         self.save_changed_device_2 = QtWidgets.QPushButton(parent=self.change_device_page)
         self.save_changed_device_2.setMinimumSize(QtCore.QSize(200, 60))
         self.save_changed_device_2.setMaximumSize(QtCore.QSize(200, 60))
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setPointSize(12)
         self.save_changed_device_2.setFont(font)
-        self.save_changed_device_2.setIcon(icon10)
+        self.save_changed_device_2.setIcon(icon7)
         self.save_changed_device_2.setObjectName("save_changed_device_2")
         self.horizontalLayout_8.addWidget(self.save_changed_device_2)
-        spacerItem13 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_8.addItem(spacerItem13)
+        spacerItem12 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_8.addItem(spacerItem12)
         self.verticalLayout_4.addLayout(self.horizontalLayout_8)
-        spacerItem14 = QtWidgets.QSpacerItem(947, 74, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.verticalLayout_4.addItem(spacerItem14)
+        spacerItem13 = QtWidgets.QSpacerItem(947, 74, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.verticalLayout_4.addItem(spacerItem13)
         self.stackedWidget.addWidget(self.change_device_page)
         self.connect_ftp_page = QtWidgets.QWidget()
         self.connect_ftp_page.setObjectName("connect_ftp_page")
@@ -688,6 +561,200 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.connect_ftp_page)
         self.add_schedule_page = QtWidgets.QWidget()
         self.add_schedule_page.setObjectName("add_schedule_page")
+        self.gridLayout_3 = QtWidgets.QGridLayout(self.add_schedule_page)
+        self.gridLayout_3.setObjectName("gridLayout_3")
+        self.horizontalLayout_12 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_12.setSpacing(0)
+        self.horizontalLayout_12.setObjectName("horizontalLayout_12")
+        self.label_8 = QtWidgets.QLabel(parent=self.add_schedule_page)
+        font = QtGui.QFont()
+        font.setPointSize(24)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_8.setFont(font)
+        self.label_8.setStyleSheet("QLabel {\n"
+"    color: rgb(255, 255, 255);\n"
+"background-color: none;\n"
+"font-weight:bold;\n"
+"width: 230;\n"
+"height: 50;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color:rgba(255,255,255,30);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"background-color:rgba(255,255,255,70);\n"
+"}")
+        self.label_8.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label_8.setObjectName("label_8")
+        self.horizontalLayout_12.addWidget(self.label_8)
+        self.back_dashdoard_button_3 = QtWidgets.QPushButton(parent=self.add_schedule_page)
+        self.back_dashdoard_button_3.setEnabled(True)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.back_dashdoard_button_3.sizePolicy().hasHeightForWidth())
+        self.back_dashdoard_button_3.setSizePolicy(sizePolicy)
+        self.back_dashdoard_button_3.setMinimumSize(QtCore.QSize(60, 60))
+        self.back_dashdoard_button_3.setMaximumSize(QtCore.QSize(60, 60))
+        self.back_dashdoard_button_3.setStyleSheet("background: none;\n"
+"border: none;")
+        self.back_dashdoard_button_3.setText("")
+        self.back_dashdoard_button_3.setIcon(icon5)
+        self.back_dashdoard_button_3.setIconSize(QtCore.QSize(60, 60))
+        self.back_dashdoard_button_3.setCheckable(False)
+        self.back_dashdoard_button_3.setAutoExclusive(False)
+        self.back_dashdoard_button_3.setObjectName("back_dashdoard_button_3")
+        self.horizontalLayout_12.addWidget(self.back_dashdoard_button_3)
+        self.gridLayout_3.addLayout(self.horizontalLayout_12, 0, 0, 1, 1)
+        self.horizontalLayout_11 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_11.setContentsMargins(0, 20, 0, 0)
+        self.horizontalLayout_11.setSpacing(0)
+        self.horizontalLayout_11.setObjectName("horizontalLayout_11")
+        self.verticalLayout_9 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_9.setContentsMargins(-1, -1, 10, 20)
+        self.verticalLayout_9.setSpacing(15)
+        self.verticalLayout_9.setObjectName("verticalLayout_9")
+        self.timeEdit = QtWidgets.QTimeEdit(parent=self.add_schedule_page)
+        self.timeEdit.setMinimumSize(QtCore.QSize(400, 60))
+        self.timeEdit.setMaximumSize(QtCore.QSize(400, 60))
+        self.timeEdit.setStyleSheet("font-size: 16pt;\n"
+"color: white;\n"
+"padding-left: 10px;\n"
+"width: 120;\n"
+"height: 45;")
+        self.timeEdit.setObjectName("timeEdit")
+        self.verticalLayout_9.addWidget(self.timeEdit)
+        self.add_time_button = QtWidgets.QPushButton(parent=self.add_schedule_page)
+        self.add_time_button.setMinimumSize(QtCore.QSize(400, 60))
+        self.add_time_button.setMaximumSize(QtCore.QSize(400, 60))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.add_time_button.setFont(font)
+        self.add_time_button.setIcon(icon7)
+        self.add_time_button.setObjectName("add_time_button")
+        self.verticalLayout_9.addWidget(self.add_time_button)
+        self.schedule_name_text = QtWidgets.QLineEdit(parent=self.add_schedule_page)
+        self.schedule_name_text.setMinimumSize(QtCore.QSize(0, 60))
+        self.schedule_name_text.setMaximumSize(QtCore.QSize(400, 60))
+        self.schedule_name_text.setStyleSheet("font-size: 16pt;\n"
+"color: white;\n"
+"padding-left: 10px;\n"
+"width: 120;\n"
+"height: 45;")
+        self.schedule_name_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.schedule_name_text.setObjectName("schedule_name_text")
+        self.verticalLayout_9.addWidget(self.schedule_name_text)
+        self.time_label = QtWidgets.QLabel(parent=self.add_schedule_page)
+        self.time_label.setMinimumSize(QtCore.QSize(200, 60))
+        self.time_label.setMaximumSize(QtCore.QSize(400, 60))
+        self.time_label.setStyleSheet("QLabel {\n"
+"    color: rgb(255, 255, 255);\n"
+"background-color: none;\n"
+"font-weight:bold;\n"
+"width: 230;\n"
+"height: 50;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color:rgba(255,255,255,30);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"background-color:rgba(255,255,255,70);\n"
+"}")
+        self.time_label.setText("")
+        self.time_label.setObjectName("time_label")
+        self.verticalLayout_9.addWidget(self.time_label)
+        spacerItem14 = QtWidgets.QSpacerItem(20, 18, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.verticalLayout_9.addItem(spacerItem14)
+        self.save_time_button = QtWidgets.QPushButton(parent=self.add_schedule_page)
+        self.save_time_button.setMinimumSize(QtCore.QSize(400, 60))
+        self.save_time_button.setMaximumSize(QtCore.QSize(400, 60))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        self.save_time_button.setFont(font)
+        self.save_time_button.setIcon(icon7)
+        self.save_time_button.setObjectName("save_time_button")
+        self.verticalLayout_9.addWidget(self.save_time_button)
+        self.horizontalLayout_11.addLayout(self.verticalLayout_9)
+        self.tableWidget_2 = QtWidgets.QTableWidget(parent=self.add_schedule_page)
+        self.tableWidget_2.setMinimumSize(QtCore.QSize(600, 0))
+        self.tableWidget_2.setAutoFillBackground(False)
+        self.tableWidget_2.setStyleSheet("QTableWidget {\n"
+"    padding: 5px;\n"
+"    border: 1px solid rgba(255, 255, 255, 40);\n"
+"    border-radius: 7px;\n"
+"    gridline-color: transparent;\n"
+"}\n"
+"\n"
+"QTableWidget::item {\n"
+"    width: 30px;\n"
+"    text-align: left;\n"
+"    padding-left: 5px;\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"    border-bottom: 1px solid rgba(255, 255, 255, 40);\n"
+"}\n"
+"QTableView::item:selected{\n"
+"    color: rgb(255, 255, 255);\n"
+"    font-weight:bold;\n"
+"    background-color: rgba(42, 62, 73, 1);;\n"
+"}\n"
+"QTableWidget::item:first-child {\n"
+"    border-left: 7px; /* Заокруглення для верхнього правого кута */\n"
+"}\n"
+"\n"
+"QTableWidget::item:last-child {\n"
+"    border-right: 7px; /* Заокруглення для нижнього правого кута */\n"
+"}\n"
+"\n"
+"QHeaderView {\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"    color: none; /* Виберіть color: black; або потрібний вам колір */\n"
+"    margin: 0px;\n"
+"    padding: 0px;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"    color: none; /* Виберіть color: white; або потрібний вам колір */\n"
+"    border-bottom: 1px solid rgba(255, 255, 255, 40);\n"
+"    border-radius: 7px;\n"
+"    margin: 5px;\n"
+"    padding: 2px;\n"
+"}\n"
+"\n"
+"QHeaderView::section:horizontal {\n"
+"    background-color: rgba(42, 62, 73, 1);\n"
+"    color: white;\n"
+"    width: 30px;\n"
+"    font-size: 12pt;\n"
+"}\n"
+"\n"
+"QHeaderView::section:vertical {\n"
+"    background-color: rgba(42, 62, 73, 1);\n"
+"    color: white;\n"
+"    width: 20px;\n"
+"    height: 50px;\n"
+"    font-size: 12pt;\n"
+"    text-align: center;\n"
+"    padding-left: 12px;\n"
+"}\n"
+"\n"
+"QTableCornerButton::section {\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QTableCornerButton {\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"    border: none;\n"
+"}\n"
+"")
+        self.tableWidget_2.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.tableWidget_2.setObjectName("tableWidget_2")
+        self.tableWidget_2.setColumnCount(0)
+        self.tableWidget_2.setRowCount(0)
+        self.horizontalLayout_11.addWidget(self.tableWidget_2)
+        self.gridLayout_3.addLayout(self.horizontalLayout_11, 1, 0, 1, 1)
         self.stackedWidget.addWidget(self.add_schedule_page)
         self.verticalLayout_5.addWidget(self.stackedWidget)
         self.gridLayout.addWidget(self.content_widget, 0, 2, 1, 1)
@@ -727,7 +794,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.setObjectName("verticalLayout_8")
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setContentsMargins(-1, 0, 0, 0)
-        self.verticalLayout.setSpacing(15)
+        self.verticalLayout.setSpacing(17)
         self.verticalLayout.setObjectName("verticalLayout")
         self.label = QtWidgets.QLabel(parent=self.icon_widget)
         self.label.setMinimumSize(QtCore.QSize(60, 60))
@@ -753,7 +820,9 @@ class Ui_MainWindow(object):
         self.dashboard_button.setMaximumSize(QtCore.QSize(60, 60))
         self.dashboard_button.setStyleSheet("")
         self.dashboard_button.setText("")
-        self.dashboard_button.setIcon(icon)
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap(":/img/list.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.dashboard_button.setIcon(icon8)
         self.dashboard_button.setIconSize(QtCore.QSize(30, 30))
         self.dashboard_button.setCheckable(True)
         self.dashboard_button.setAutoExclusive(True)
@@ -764,7 +833,9 @@ class Ui_MainWindow(object):
         self.connect_ftp_button.setMaximumSize(QtCore.QSize(60, 60))
         self.connect_ftp_button.setStyleSheet("")
         self.connect_ftp_button.setText("")
-        self.connect_ftp_button.setIcon(icon1)
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap(":/img/ftp.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.connect_ftp_button.setIcon(icon9)
         self.connect_ftp_button.setIconSize(QtCore.QSize(30, 30))
         self.connect_ftp_button.setCheckable(True)
         self.connect_ftp_button.setAutoExclusive(True)
@@ -776,7 +847,9 @@ class Ui_MainWindow(object):
         self.addScheduleButton.setMaximumSize(QtCore.QSize(60, 60))
         self.addScheduleButton.setStyleSheet("")
         self.addScheduleButton.setText("")
-        self.addScheduleButton.setIcon(icon2)
+        icon10 = QtGui.QIcon()
+        icon10.addPixmap(QtGui.QPixmap(":/img/schedule.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.addScheduleButton.setIcon(icon10)
         self.addScheduleButton.setIconSize(QtCore.QSize(30, 30))
         self.addScheduleButton.setCheckable(True)
         self.addScheduleButton.setAutoExclusive(True)
@@ -786,10 +859,135 @@ class Ui_MainWindow(object):
         self.verticalLayout.addItem(spacerItem15)
         self.verticalLayout_8.addLayout(self.verticalLayout)
         self.gridLayout.addWidget(self.icon_widget, 0, 0, 1, 1)
+        self.icon_name_widget = QtWidgets.QWidget(parent=self.centralwidget)
+        self.icon_name_widget.setMinimumSize(QtCore.QSize(0, 720))
+        self.icon_name_widget.setStyleSheet("QWidget {\n"
+"paddind: 5px;\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"    color: rgb(255, 255, 255);\n"
+"     background-color:rgba(255,255,255,30);\n"
+"     border: 1px solid rgba(255,255,255,40);\n"
+"     border-radius:7px;\n"
+"     text-align:left;\n"
+"     padding-left: 15%;\n"
+"width: 230;\n"
+"height: 50;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color:rgba(255,255,255,30);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"background-color:rgba(255,255,255,70);\n"
+"}\n"
+"QPushButton:checked{\n"
+"    background-color: #2C3F44;\n"
+"    font-weight:bold;\n"
+"}")
+        self.icon_name_widget.setObjectName("icon_name_widget")
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.icon_name_widget)
+        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_2.setSpacing(14)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setContentsMargins(-1, 7, -1, -1)
+        self.horizontalLayout.setSpacing(10)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.label_2 = QtWidgets.QLabel(parent=self.icon_name_widget)
+        self.label_2.setMinimumSize(QtCore.QSize(60, 60))
+        self.label_2.setMaximumSize(QtCore.QSize(60, 60))
+        self.label_2.setStyleSheet("QLabel {\n"
+"    border-radius: 7px;       /* Закруглення країв для створення круглої форми */\n"
+"    border: 2px solid #000;   /* Додавання рамки */\n"
+"    background-color: none;   /* Відсутність фону */\n"
+"    padding: 1px;\n"
+"}\n"
+"\n"
+"QLabel::SetPixmap {\n"
+"    border-radius: 7px;       /* Закруглення країв зображення */\n"
+"}\n"
+"")
+        self.label_2.setText("")
+        self.label_2.setPixmap(QtGui.QPixmap(":/img/main_icon.png"))
+        self.label_2.setScaledContents(True)
+        self.label_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.label_2.setWordWrap(False)
+        self.label_2.setTextInteractionFlags(QtCore.Qt.TextInteractionFlag.NoTextInteraction)
+        self.label_2.setObjectName("label_2")
+        self.horizontalLayout.addWidget(self.label_2)
+        self.label_3 = QtWidgets.QLabel(parent=self.icon_name_widget)
+        self.label_3.setMaximumSize(QtCore.QSize(120, 60))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        font.setStrikeOut(False)
+        self.label_3.setFont(font)
+        self.label_3.setMouseTracking(False)
+        self.label_3.setStyleSheet("QLabel {\n"
+"    color: rgb(255, 255, 255);\n"
+"\n"
+"width: 230;\n"
+"height: 50;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color:rgba(255,255,255,30);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"background-color:rgba(255,255,255,70);\n"
+"}")
+        self.label_3.setObjectName("label_3")
+        self.horizontalLayout.addWidget(self.label_3)
+        self.verticalLayout_2.addLayout(self.horizontalLayout)
+        self.dashboard_button_1 = QtWidgets.QPushButton(parent=self.icon_name_widget)
+        self.dashboard_button_1.setMaximumSize(QtCore.QSize(200, 60))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.dashboard_button_1.setFont(font)
+        self.dashboard_button_1.setStyleSheet("")
+        self.dashboard_button_1.setIcon(icon8)
+        self.dashboard_button_1.setIconSize(QtCore.QSize(30, 30))
+        self.dashboard_button_1.setCheckable(True)
+        self.dashboard_button_1.setAutoExclusive(True)
+        self.dashboard_button_1.setObjectName("dashboard_button_1")
+        self.verticalLayout_2.addWidget(self.dashboard_button_1)
+        self.connect_ftp_button_1 = QtWidgets.QPushButton(parent=self.icon_name_widget)
+        self.connect_ftp_button_1.setMaximumSize(QtCore.QSize(200, 60))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.connect_ftp_button_1.setFont(font)
+        self.connect_ftp_button_1.setStyleSheet("")
+        self.connect_ftp_button_1.setIcon(icon9)
+        self.connect_ftp_button_1.setIconSize(QtCore.QSize(30, 30))
+        self.connect_ftp_button_1.setCheckable(True)
+        self.connect_ftp_button_1.setAutoExclusive(True)
+        self.connect_ftp_button_1.setAutoDefault(False)
+        self.connect_ftp_button_1.setObjectName("connect_ftp_button_1")
+        self.verticalLayout_2.addWidget(self.connect_ftp_button_1)
+        self.addScheduleButton_1 = QtWidgets.QPushButton(parent=self.icon_name_widget)
+        self.addScheduleButton_1.setMaximumSize(QtCore.QSize(200, 60))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.addScheduleButton_1.setFont(font)
+        self.addScheduleButton_1.setStyleSheet("")
+        self.addScheduleButton_1.setIcon(icon10)
+        self.addScheduleButton_1.setIconSize(QtCore.QSize(30, 30))
+        self.addScheduleButton_1.setCheckable(True)
+        self.addScheduleButton_1.setAutoExclusive(True)
+        self.addScheduleButton_1.setObjectName("addScheduleButton_1")
+        self.verticalLayout_2.addWidget(self.addScheduleButton_1)
+        spacerItem16 = QtWidgets.QSpacerItem(20, 235, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.verticalLayout_2.addItem(spacerItem16)
+        self.verticalLayout_7.addLayout(self.verticalLayout_2)
+        self.gridLayout.addWidget(self.icon_name_widget, 0, 1, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         self.switch_menu_button.toggled['bool'].connect(self.icon_widget.setHidden) # type: ignore
         self.switch_menu_button.toggled['bool'].connect(self.icon_name_widget.setVisible) # type: ignore
         self.dashboard_button.toggled['bool'].connect(self.dashboard_button_1.setChecked) # type: ignore
@@ -803,15 +1001,11 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label_3.setText(_translate("MainWindow", "Menu"))
-        self.dashboard_button_1.setText(_translate("MainWindow", "Dashboard"))
-        self.connect_ftp_button_1.setText(_translate("MainWindow", "Connect FTP"))
-        self.addScheduleButton_1.setText(_translate("MainWindow", "Add schedule"))
         self.add_device_1.setText(_translate("MainWindow", "Add device"))
         self.change_device_1.setText(_translate("MainWindow", "Change device"))
         self.delete_device_1.setText(_translate("MainWindow", "Delete Device"))
-        self.pushButton_3.setText(_translate("MainWindow", "Stop"))
-        self.pushButton_4.setText(_translate("MainWindow", "Start"))
+        self.stop_button.setText(_translate("MainWindow", "Stop"))
+        self.start_button.setText(_translate("MainWindow", "Start"))
         self.label_4.setText(_translate("MainWindow", "      Add device"))
         self.device_name_text.setPlaceholderText(_translate("MainWindow", "Name"))
         self.rtsp_string_text.setPlaceholderText(_translate("MainWindow", "RTSP string"))
@@ -823,6 +1017,14 @@ class Ui_MainWindow(object):
         self.folder_path_text_2.setPlaceholderText(_translate("MainWindow", "Path to folder"))
         self.save_changed_device_2.setText(_translate("MainWindow", "Save"))
         self.label_5.setText(_translate("MainWindow", "SOON"))
+        self.label_8.setText(_translate("MainWindow", "Add schedule"))
+        self.add_time_button.setText(_translate("MainWindow", "Add time"))
+        self.schedule_name_text.setPlaceholderText(_translate("MainWindow", "Name"))
+        self.save_time_button.setText(_translate("MainWindow", "Save"))
+        self.label_3.setText(_translate("MainWindow", "Menu"))
+        self.dashboard_button_1.setText(_translate("MainWindow", "Dashboard"))
+        self.connect_ftp_button_1.setText(_translate("MainWindow", "Connect FTP"))
+        self.addScheduleButton_1.setText(_translate("MainWindow", "Add schedule"))
 
 
 if __name__ == "__main__":
