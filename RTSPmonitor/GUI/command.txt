@@ -1,0 +1,2 @@
+pyuic6 -x .\GUI\ui_main_work_no_page.ui -o .\GUI\ui_main_sidebar.py
+pyside6-rcc -o res_rc.py res.qrc

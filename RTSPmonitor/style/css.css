@@ -1,0 +1,172 @@
+QMainWindow {
+     background-color: rgba(42, 62, 73, 1);
+}
+
+QWidget {
+
+    border: 1px solid rgba(255,255,255,40);
+    border-radius: 7px;
+    }
+    
+    QPushButton{
+        color: rgb(255, 255, 255);
+         background-color:rgba(255,255,255,30);
+         border: 1px solid rgba(255,255,255,40);
+         border-radius:7px;
+    width: 230;
+    height: 50;
+    }
+    QPushButton:hover{
+    background-color:rgba(255,255,255,30);
+    }
+    QPushButton:pressed{
+    background-color:rgba(255,255,255,70);
+    }
+    QTimeEdit {
+    font-size: 12pt;
+    color: white;
+    padding-left: 10px;
+    width: 120;
+    height: 45;
+         background-color:rgba(255,255,255,30);
+         border: 1px solid rgba(255,255,255,40);
+         border-radius:7px;
+    }
+
+    QTableWidget {
+     background-color: rgba(42, 62, 73, 1);
+     alternate-background-color: rgba(255, 255, 255, 30);
+     border: 1px solid rgba(255, 255, 255, 40);
+     border-radius: 7px;
+     color: white;
+ }
+ 
+ QTableWidget::item {
+     padding-left: 10px;
+     padding-right: 10px;
+ }
+ 
+ QTableWidget::item:selected {
+     background-color: rgba(255, 255, 255, 50);
+     color: black;
+ }
+ 
+ QTableWidget::horizontalHeader {
+     background-color: rgba(255, 255, 255, 30);
+     border: 1px solid rgba(255, 255, 255, 40);
+     border-top-left-radius: 7px;
+     border-top-right-radius: 7px;
+     color: white;
+ }
+ 
+ QTableWidgetItem {
+     color: white;
+ }
+ QHBoxLayout {
+     background-color: rgba(42, 62, 73, 1);
+     padding: 10px; /* Опціональний відступ для краси */
+     spacing: 10px; /* Опціональний інтервал між віджетами */
+ }
+ 
+ QWidget {
+     border: 1px solid rgba(255, 255, 255, 40);
+     border-radius: 7px;
+ }
+ 
+ QPushButton {
+     color: rgb(255, 255, 255);
+     background-color: rgba(255, 255, 255, 30);
+     border: 1px solid rgba(255, 255, 255, 40);
+     border-radius: 7px;
+     min-width: 100px; /* Мінімальна ширина кнопок */
+     height: 40px;
+ }
+ 
+ QPushButton:hover {
+     background-color: rgba(255, 255, 255, 50); /* Змінено для ефекту наведення */
+ }
+ 
+ QPushButton:pressed {
+     background-color: rgba(255, 255, 255, 70);
+ }
+
+ QScrollBar:horizontal {
+     background: rgba(42, 62, 73, 1);
+     height: 20px;
+     margin: 0px 20px 0px 20px;
+ }
+ 
+ QScrollBar::handle:horizontal {
+     background: rgba(255, 255, 255, 50);
+     min-width: 20px;
+     border-radius: 10px;
+ }
+ 
+
+
+ QDialog {
+     background-color: rgba(42, 62, 73, 1);
+     border: 1px solid rgba(255, 255, 255, 40);
+     border-radius: 10px;
+ }
+ 
+ QDialog QPushButton {
+     color: rgb(255, 255, 255);
+     background-color: rgba(255, 255, 255, 30);
+     border: 1px solid rgba(255, 255, 255, 40);
+     border-radius: 7px;
+     min-width: 100px;
+     height: 40px;
+ }
+ 
+ QDialog QPushButton:hover {
+     background-color: rgba(255, 255, 255, 50);
+ }
+ 
+ QDialog QPushButton:pressed {
+     background-color: rgba(255, 255, 255, 70);
+ }
+ 
+ QDialog QCheckBox {
+     color: white;
+ }
+ 
+ QDialog QLabel {
+     color: white;
+ }
+ 
+ QDialog QLineEdit {
+     background-color: rgba(255, 255, 255, 30);
+
+     color: white;
+ }
+ 
+ QTableWidget {
+    background-color: rgba(255, 255, 255, 30); 
+    border: 1px solid rgba(255,255,255,40);
+    border-bottom-right-radius: 7px; 
+    border-bottom-left-radius: 7px; 
+    color: white;
+    }
+    
+    QHeaderView::section {
+    background-color: rgb(53, 53, 53);
+    color: white;
+    border: none;
+    height: 50px;
+    font-size: 16pt;
+    }
+    
+    QTableWidget::item {
+        border-style: none;
+        border-bottom: 1px solid rgba(255,255,255,50);
+        padding-left: auto;
+        padding-right: auto;
+    }
+    
+    QTableWidget::item:selected{
+        border: none;
+        color: rgb(255, 255, 255);
+        background-color: rgba(255, 255, 255, 50);
+    }
+    
